@@ -1,6 +1,8 @@
 # NycBikeshare
-
+This project (nyc-bikeshare) is created as an assignment for an interview. They reuire me to create a demo application to show my skills in Angular.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+
+<img width="958" alt="nyc-bikeshare" src="https://user-images.githubusercontent.com/1684333/40093703-c0d5d25c-5906-11e8-8bc5-383bb4b6b513.png">
 
 ## Development server
 
