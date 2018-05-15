@@ -1,0 +1,43 @@
+<ngx-datatable 
+#myTable
+  class="material"
+  [rows]="stationsStatus"
+  [loadingIndicator]="loadingIndicator"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [limit]="20"
+  [rowHeight]="'auto'"
+  [reorderable]="reorderable">
+
+  <ngx-datatable-column name="Name">
+      <ng-template let-column="column" ngx-datatable-header-template>
+         {{column.name}}
+      </ng-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <strong>{{value}}</strong>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Capacity">
+    <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        <span (click)="sort()">{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Available" prop="percentAvailable">
+        <span (click)="sort()">Available</span>
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <div style="border:solid 1px #ddd;margin:5px;padding:3px">
+
+          <div *ngIf="value >= 75" style="background:green;height:20px" [style.width]="value + '%'">{{value}}%</div>
+          <div *ngIf="value < 50 && value > 0" style="background:orange;height:20px" [style.width]="value + '%'">{{value}}%</div>
+          <div *ngIf="value == 0" style="background:red;height:20px; color:red;" [style.width]="value + '%'">{{value}}%</div>
+          <div *ngIf="value > 50 && value < 75" style="background:grey;height:20px" [style.width]="value + '%'">{{value}}%</div>
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+
+</ngx-datatable>
